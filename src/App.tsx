@@ -5,6 +5,7 @@ import { EventDetail } from "./pages/EventDetail.tsx";
 import { NewEvent } from "./pages/NewEvent.tsx";
 import { EditEvent } from "./pages/EditEvent.tsx";
 import { RootLayout } from "./pages/RootLayout.tsx";
+import { EventsRootLayout } from "./pages/EventsRootLayout.tsx";
 
 const router = createBrowserRouter([
   {
@@ -17,19 +18,25 @@ const router = createBrowserRouter([
       },
       {
         path: "events",
-        element: <Events />,
-      },
-      {
-        path: "events/:eventId",
-        element: <EventDetail />,
-      },
-      {
-        path: "events/new",
-        element: <NewEvent />,
-      },
-      {
-        path: "events/:eventId/edit",
-        element: <EditEvent />,
+        element: <EventsRootLayout />,
+        children: [
+          {
+            index: true,
+            element: <Events />,
+          },
+          {
+            path: ":eventId",
+            element: <EventDetail />,
+          },
+          {
+            path: "new",
+            element: <NewEvent />,
+          },
+          {
+            path: ":eventId/edit",
+            element: <EditEvent />,
+          },
+        ],
       },
     ],
   },
