@@ -4,7 +4,6 @@ import { Events } from "./pages/Events.tsx";
 import { EventDetail } from "./pages/EventDetail.tsx";
 import { NewEvent } from "./pages/NewEvent.tsx";
 import { EditEvent } from "./pages/EditEvent.tsx";
-import MainNavigation from "./components/MainNavigation.tsx";
 import { RootLayout } from "./pages/RootLayout.tsx";
 
 const router = createBrowserRouter([
