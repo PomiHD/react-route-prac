@@ -6,7 +6,7 @@
   - EventDetailPage
   - NewEventPage
   - EditEventPage
-- [ ] 2. Add routing & route definitions for these five pages
+- [x] 2. Add routing & route definitions for these five pages
   - `/` => HomePage
   - `/events` => EventsPage
   - `/events/<some-id>` => EventDetailPage
