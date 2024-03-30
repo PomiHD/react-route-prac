@@ -13,23 +13,23 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "/events",
+        path: "events",
         element: <Events />,
       },
       {
-        path: "/events/:eventId",
+        path: "events/:eventId",
         element: <EventDetail />,
       },
       {
-        path: "/events/new",
+        path: "events/new",
         element: <NewEvent />,
       },
       {
-        path: "/events/:eventId/edit",
+        path: "events/:eventId/edit",
         element: <EditEvent />,
       },
     ],
