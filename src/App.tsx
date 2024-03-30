@@ -4,27 +4,34 @@ import { Events } from "./pages/Events.tsx";
 import { EventDetail } from "./pages/EventDetail.tsx";
 import { NewEvent } from "./pages/NewEvent.tsx";
 import { EditEvent } from "./pages/EditEvent.tsx";
+import MainNavigation from "./components/MainNavigation.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/events",
-    element: <Events />,
-  },
-  {
-    path: "/events/:eventId",
-    element: <EventDetail />,
-  },
-  {
-    path: "/events/new",
-    element: <NewEvent />,
-  },
-  {
-    path: "/events/:eventId/edit",
-    element: <EditEvent />,
+    element: <MainNavigation />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/events",
+        element: <Events />,
+      },
+      {
+        path: "/events/:eventId",
+        element: <EventDetail />,
+      },
+      {
+        path: "/events/new",
+        element: <NewEvent />,
+      },
+      {
+        path: "/events/:eventId/edit",
+        element: <EditEvent />,
+      },
+    ],
   },
 ]);
 
