@@ -6,11 +6,13 @@ import NewEvent from "./pages/NewEvent.tsx";
 import EditEvent from "./pages/EditEvent.tsx";
 import RootLayout from "./pages/RootLayout.tsx";
 import EventsRootLayout from "./pages/EventsRootLayout.tsx";
+import Error from "./pages/Error.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
