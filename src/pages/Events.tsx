@@ -2,7 +2,8 @@
 import { useLoaderData } from "react-router-dom";
 
 export default function Events() {
-  const events = useLoaderData();
+  const data = useLoaderData(); // useLoaderData hook to get the data from the response object that was loaded by the loader function
+  const events = data.events;
 
   return <>{<EventsList events={events} />}</>;
 }
@@ -13,7 +14,8 @@ export async function loader() {
   if (!response.ok) {
     // handle error
   } else {
-    const resData = await response.json();
-    return resData.events;
+    // const res = new Response("any data", { status: 201 }); // create a new response object, happens in the browser
+    // return res;
+    return response;
   }
 }
