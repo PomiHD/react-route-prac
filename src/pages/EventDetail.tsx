@@ -1,6 +1,6 @@
 ﻿import { useParams } from "react-router-dom";
 
-export function EventDetail() {
+export default function EventDetail() {
   const params = useParams();
   return (
     <>

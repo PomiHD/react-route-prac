@@ -1,7 +1,7 @@
 ﻿import MainNavigation from "../components/MainNavigation.tsx";
 import { Outlet } from "react-router-dom";
 
-export function RootLayout() {
+export default function RootLayout() {
   return (
     <>
       <MainNavigation />
