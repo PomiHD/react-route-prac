@@ -17,10 +17,9 @@ export async function loader() {
   if (!response.ok) {
     // handle error
     // return { isError: true, message: "Failed to load data" };
-    throw {
-        status: response.status,
-        message: "Failed to load data",
-    };
+    throw new Response(JSON.stringify({ message: "Failed to load data" }), {
+      status: 500,
+    });
   } else {
     // const res = new Response("any data", { status: 201 }); // create a new response object, happens in the browser
     // return res;
