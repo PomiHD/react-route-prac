@@ -12,7 +12,7 @@ export default function Events() {
 }
 
 export async function loader() {
-  const response = await fetch("http://localhost:8080/events1");
+  const response = await fetch("http://localhost:8080/events");
 
   if (!response.ok) {
     // handle error
@@ -20,7 +20,7 @@ export async function loader() {
     // throw new Response(JSON.stringify({ message: "Failed to load data" }), {
     //   status: 500,
     // });
-    return json(
+    throw json(
       { message: "Failed to load data" },
       {
         status: 500,
