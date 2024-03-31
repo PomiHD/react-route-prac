@@ -13,7 +13,7 @@ export default function Error() {
     message = "The page you are looking for does not exist.";
   }
   if (error.status === 500) {
-    message = JSON.parse(error.data).message;
+    message = error.data.message;
   }
   return (
     <>
