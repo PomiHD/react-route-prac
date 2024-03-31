@@ -23,7 +23,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Events />,
-            loader: eventsLoader,
+            loader: eventsLoader, // loader starts fetching data when the route is visited before rendering the component
           },
           {
             path: ":eventId",
