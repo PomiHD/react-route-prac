@@ -6,10 +6,11 @@ import EventDetail, {
   action as deleteEventAction,
 } from "./pages/EventDetail.tsx";
 import NewEvent, { action as newEventAction } from "./pages/NewEvent.tsx";
-import EditEvent from "./pages/EditEvent.tsx";
+import EditEvent, { action as EditEventAction } from "./pages/EditEvent.tsx";
 import RootLayout from "./pages/RootLayout.tsx";
 import EventsRootLayout from "./pages/EventsRootLayout.tsx";
 import Error from "./pages/Error.tsx";
+import { action as manipulateEventAction } from "./pages/EditEvent.tsx";
 
 const router = createBrowserRouter([
   {
@@ -43,13 +44,14 @@ const router = createBrowserRouter([
               {
                 path: "edit",
                 element: <EditEvent />,
+                action: manipulateEventAction,
               },
             ],
           },
           {
             path: "new",
             element: <NewEvent />,
-            action: newEventAction,
+            action: manipulateEventAction,
           },
         ],
       },
