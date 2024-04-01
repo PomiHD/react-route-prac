@@ -4,7 +4,7 @@ import Events, { loader as eventsLoader } from "./pages/Events.tsx";
 import EventDetail, {
   loader as eventDetailLoader,
 } from "./pages/EventDetail.tsx";
-import NewEvent from "./pages/NewEvent.tsx";
+import NewEvent, { action as newEventAction } from "./pages/NewEvent.tsx";
 import EditEvent from "./pages/EditEvent.tsx";
 import RootLayout from "./pages/RootLayout.tsx";
 import EventsRootLayout from "./pages/EventsRootLayout.tsx";
@@ -47,6 +47,7 @@ const router = createBrowserRouter([
           {
             path: "new",
             element: <NewEvent />,
+            action: newEventAction,
           },
         ],
       },

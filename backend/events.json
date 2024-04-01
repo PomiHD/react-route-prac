@@ -1,11 +1,1 @@
-{
-  "events": [
-    {
-      "id": "e1",
-      "title": "A dummy event",
-      "date": "2023-02-22",
-      "image": "https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg",
-      "description": "Join this amazing event and connect with fellow developers."
-    }
-  ]
-}
+{"events":[{"title":"sadsadsa","image":"https://assets.venuecrew.com/wp-content/uploads/2023/03/28201801/Unusual-Corporate-Events-Spaces-Hire-Brisbane.jpg","date":"2024-04-26","description":"sadsadsadsa","id":"4237efe0-249d-4288-9a62-1695948988fe"},{"title":"new event3","image":"https://assets.venuecrew.com/wp-content/uploads/2023/03/28201801/Unusual-Corporate-Events-Spaces-Hire-Brisbane.jpg","date":"2024-04-28","description":"hello!!!!!!!!!","id":"0d75465d-4977-4c64-9b21-26ac158de8ce"},{"title":"a new event 2","image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bcec.com.au%2Forganise%2Ffunctions-gala-events%2F&psig=AOvVaw2zMdWsl1fCiHG7Tqo5rgwV&ust=1712039948789000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLimr_qzoIUDFQAAAAAdAAAAABAE","date":"2024-04-13","description":"new event2","id":"2a9523a4-9f1f-4817-bfc0-0efd9aec87a4"},{"title":"new image","image":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fnature%2F&psig=AOvVaw1oU729ppEfR6lNM75HzBBo&ust=1712039790747000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKCO966zoIUDFQAAAAAdAAAAABAE","date":"2024-04-12","description":"a new image.","id":"1612b045-c0f6-480b-96fc-43f437cf39bf"},{"id":"e1","title":"A dummy event","date":"2023-02-22","image":"https://blog.hubspot.de/hubfs/Germany/Blog_images/Optimize_Marketing%20Events%20DACH%202021.jpg","description":"Join this amazing event and connect with fellow developers."}]}
