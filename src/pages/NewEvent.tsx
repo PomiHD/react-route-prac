@@ -1,7 +1,5 @@
-﻿export default function NewEvent() {
-  return (
-    <>
-      <h1>New Event</h1>
-    </>
-  );
+﻿import EventForm from "../components/EventForm.tsx";
+
+export default function NewEvent() {
+  return <EventForm />;
 }
