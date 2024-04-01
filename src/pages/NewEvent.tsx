@@ -1,8 +1,8 @@
 ﻿import EventForm from "../components/EventForm.tsx";
-import {json, redirect} from "react-router-dom";
+import { json, redirect } from "react-router-dom";
 
 export default function NewEvent() {
-  return <EventForm method={"post"}/>;
+  return <EventForm method={"post"} />;
 }
 
 // execute in the browser
@@ -22,6 +22,11 @@ export async function action({ request, params }) {
     },
     body: JSON.stringify(eventData),
   });
+
+  if (response.status === 422) {
+    return response;
+  }
+
   if (!response.ok) {
     throw json({ message: "Failed to save event!" }, { status: 500 });
   } else {
