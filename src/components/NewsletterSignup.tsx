@@ -1,0 +1,32 @@
+﻿import classes from "./NewsletterSignup.module.css";
+import { useFetcher } from "react-router-dom";
+import { useEffect } from "react";
+
+function NewsletterSignup() {
+  // why use fetcher.Form but not Form? because it wont trigger the transition to different route.
+  const fetcher = useFetcher();
+  const { data, state } = fetcher;
+
+  useEffect(() => {
+    if (state === "idle" && data && data.message) {
+      window.alert("Newsletter signup successful!");
+    }
+  }, [data, state]);
+  // what action="/newsletter" do here? it specifies the URL to which the form data will be sent.
+  return (
+    <fetcher.Form
+      method="post"
+      action={"/newsletter"}
+      className={classes.newsletter}
+    >
+      <input
+        type="email"
+        placeholder="Sign up for newsletter..."
+        aria-label="Sign up for newsletter"
+      />
+      <button>Sign up</button>
+    </fetcher.Form>
+  );
+}
+
+export default NewsletterSignup;

@@ -1,16 +1,17 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home.tsx";
-import Events, { loader as eventsLoader } from "./pages/Events.tsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import EditEvent from "./pages/EditEvent.tsx";
+import Error from "./pages/Error.tsx";
 import EventDetail, {
   loader as eventDetailLoader,
   action as deleteEventAction,
 } from "./pages/EventDetail.tsx";
-import NewEvent, { action as newEventAction } from "./pages/NewEvent.tsx";
-import EditEvent, { action as EditEventAction } from "./pages/EditEvent.tsx";
-import RootLayout from "./pages/RootLayout.tsx";
+import Events, { loader as eventsLoader } from "./pages/Events.tsx";
 import EventsRootLayout from "./pages/EventsRootLayout.tsx";
-import Error from "./pages/Error.tsx";
+import Home from "./pages/Home.tsx";
+import NewEvent from "./pages/NewEvent.tsx";
+import RootLayout from "./pages/RootLayout.tsx";
 import { action as manipulateEventAction } from "./pages/EditEvent.tsx";
+import Newsletter, { action as newsletterAction } from "./pages/Newsletter.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,10 +19,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <Error />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
+      { index: true, element: <Home /> },
       {
         path: "events",
         element: <EventsRootLayout />,
@@ -29,7 +27,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Events />,
-            loader: eventsLoader, // loader starts fetching data when the route is visited before rendering the component
+            loader: eventsLoader,
           },
           {
             path: ":eventId",
@@ -54,6 +52,11 @@ const router = createBrowserRouter([
             action: manipulateEventAction,
           },
         ],
+      },
+      {
+        path: "newsletter",
+        element: <Newsletter />,
+        action: newsletterAction,
       },
     ],
   },

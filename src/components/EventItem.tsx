@@ -8,7 +8,10 @@ function EventItem({ event }) {
       "Are you sure you want to delete this event?",
     );
     if (proceed) {
-      // trigger action to delete event
+      // trigger action to delete event. In other words, submit is like a form submit, but it's not a form.
+      // it's a function that sends a request to the backend. so when the user clicks the delete button,
+      // the startDeleteHandler function is called, which in turn calls the submit function with the method "delete".
+      // this sends a request to the backend to delete the event with the specified id.
       submit(null, { method: "delete" });
     }
   }
