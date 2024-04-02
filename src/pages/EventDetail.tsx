@@ -1,18 +1,40 @@
-﻿import { json, redirect, useRouteLoaderData } from "react-router-dom";
+﻿import {
+  Await,
+  defer,
+  json,
+  redirect,
+  useRouteLoaderData,
+} from "react-router-dom";
 import EventItem from "../components/EventItem.tsx";
+import EventsList from "../components/EventsList.tsx";
+import { Suspense } from "react";
 
 export default function EventDetail() {
-  const data = useRouteLoaderData("event-detail");
-  const eventDetail = data.event;
+  const { event, events } = useRouteLoaderData("event-detail");
+
   return (
     <>
-      <EventItem event={eventDetail} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Await resolve={event}>
+          {(loadedEvent) => <EventItem event={loadedEvent} />}
+        </Await>
+      </Suspense>
+      <Suspense
+        fallback={
+          <div>
+            <h1>Events</h1>
+            <div>Loading...</div>
+          </div>
+        }
+      >
+        <Await resolve={events}>
+          {(loadedEvents) => <EventsList events={loadedEvents} />}
+        </Await>
+      </Suspense>
     </>
   );
 }
-
-export async function loader({ request, params }) {
-  const id = params.eventId;
+async function loadEvent(id) {
   const response = await fetch("http://localhost:8080/events/" + id);
 
   if (!response.ok) {
@@ -23,8 +45,40 @@ export async function loader({ request, params }) {
       },
     );
   } else {
-    return response;
+    const resData = await response.json();
+    return resData.event;
   }
+}
+async function loadEvents() {
+  const response = await fetch("http://localhost:8080/events");
+
+  if (!response.ok) {
+    // handle error
+    // return { isError: true, message: "Failed to load data" };
+    // throw new Response(JSON.stringify({ message: "Failed to load data" }), {
+    //   status: 500,
+    // });
+    throw json(
+      { message: "Failed to load data" },
+      {
+        status: 500,
+      },
+    );
+  } else {
+    // const res = new Response("any data", { status: 201 }); // create a new response object, happens in the browser
+    // return res;
+    const resData = await response.json();
+    return resData.events;
+  }
+}
+
+export async function loader({ request, params }) {
+  const id = params.eventId;
+
+  return defer({
+    event: await loadEvent(id),
+    events: loadEvents(),
+  });
 }
 // what will trigger the delete action? when the user clicks the delete button.
 // why? because the delete action is triggered by the startDeleteHandler function in the EventItem component.
