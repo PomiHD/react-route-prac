@@ -1,7 +1,11 @@
-﻿export default function Home() {
+﻿import PageContent from "../components/PageContent.tsx";
+
+export default function Home() {
   return (
     <>
-      <h1>My Home Page</h1>
+      <PageContent title={"Welcome!"}>
+        <p>Browse our amzing events and find something you like.</p>
+      </PageContent>
     </>
   );
 }
